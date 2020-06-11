@@ -33,6 +33,7 @@ print("SYS> 書籍検索をします")
 
 # 状態とシステム発話を紐づけた辞書
 uttdic = {"ask_purpose": "調べたい内容を教えてください[title][author][ISBN]",
+          "ask_isbn": "調べたい本のisbnを知っていたら教えてください。",
           "ask_author": "著者名を言ってください",
           "ask_title": "タイトルを言ってください"}
 
@@ -54,7 +55,12 @@ while True:
         if purpose != "":
             sm.submitEvent("purpose")
             el.processEvents()
-    if current_state == "ask_author":
+    elif current_state == "ask_isbn":
+        isbn = text
+        if isbn != "":
+            sm.submitEvent("isbn")
+            el.processEvents()
+    elif current_state == "ask_author":
         author = get_author(text)
         if author != "":
             sm.submitEvent("author")
