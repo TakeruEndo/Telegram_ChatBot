@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scxml xmlns="http://www.w3.org/2005/07/scxml" version="1.0" initial="ask_purpose">
+  <state id="ask_purpose">			      
+    <transition event="purpose" target="ask_isbn"/>
+  </state>
+  <state id="ask_isbn">			      
+    <transition event="isbn" target="ask_author"/>
+  </state>  
+  <state id="ask_author">			      
+    <transition event="author" target="ask_title"/>
+  </state>
+  <state id="ask_title">			      
+    <transition event="title" target="tell_info"/>
+  </state>
+  <final id="tell_info"/>
+</scxml>
